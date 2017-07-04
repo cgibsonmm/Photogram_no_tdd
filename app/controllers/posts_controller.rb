@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   def index
+    @posts = Post.all.order('created_at DESC')
   end
 
   def new
@@ -21,5 +22,5 @@ private
 
   def post_params
     params.require(:post).permit(:image, :caption)
-  end 
+  end
 end
